@@ -25,44 +25,59 @@ struct Node
     struct Node *link;
 };
 
-void countOfNodes(struct Node *head){
-    int count  = 0;
+void countOfNodes(struct Node *head)
+{
+    int count = 0;
 
-    if(head==nullptr){
+    if (head == nullptr)
+    {
         printf("linked list is empty");
     }
 
     struct Node *ptr = nullptr;
     ptr = head;
 
-    while (ptr!=nullptr)
+    while (ptr != nullptr)
     {
         count++;
         ptr = ptr->link;
     }
 
     printf("%d\n", count);
-    
-
 }
 
-void printData(struct Node *head){
+int sumNodes(struct Node *head)
+{
 
-    if (head==nullptr)
+    int sum = 0;
+
+    // struct Node *ptr = head;
+
+    while (head != nullptr)
     {
-        cout<<"list is empty"<<endl;
+        sum += head->data;
+        head = head->link;
+    }
+
+    return sum;
+}
+
+void printData(struct Node *head)
+{
+
+    if (head == nullptr)
+    {
+        cout << "list is empty" << endl;
     }
 
     struct Node *ptr = head;
 
-    while (ptr!=nullptr)
+    while (ptr != nullptr)
     {
-        cout<<ptr->data<<" ";
+        cout << ptr->data << " ";
         ptr = ptr->link;
     }
-    cout<<endl;
-    
-    
+    cout << endl;
 }
 int main()
 {
@@ -72,13 +87,12 @@ int main()
     head = new Node;
     head->data = 50;
 
-
     struct Node *current = new Node;
 
-    current->data=100;
+    current->data = 100;
     head->link = current;
 
-    current= new Node;
+    current = new Node;
     current->data = 30;
     current->link = nullptr;
 
@@ -87,8 +101,10 @@ int main()
     countOfNodes(head);
     printData(head);
 
-    printf("%d\n", head->data);
-    printf("%d\n", head->link->data);
+    cout << sumNodes(head) << endl;
 
-    printf("%d\n", current->data);
+    // printf("%d\n", head->data);
+    // printf("%d\n", head->link->data);
+
+    // printf("%d\n", current->data);
 }
