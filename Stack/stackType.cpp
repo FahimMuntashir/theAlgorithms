@@ -20,9 +20,18 @@ public:
     bool isEmpty();
     bool isFull();
     void makeEmpty();
+    int stackTop();
     void displayStack();
 };
 
+int stackType::stackTop(){
+
+    if (isEmpty())
+    {
+        return -1;
+    }else return list[top];
+    
+}
 stackType::stackType()
 {
     top = -1;
@@ -107,6 +116,8 @@ void stackType::displayStack()
 
 int main()
 {
+  
+    
 
     int size= 5;
     stackType st(size);
@@ -118,7 +129,14 @@ int main()
     // st.push(120);
 
     // st.makeEmpty();
-   cout<< st.isEmpty()<<endl;
 
     st.displayStack();
+
+    st.pop();
+
+    st.displayStack();
+
+    cout<<st.stackTop()<<endl;
+
+
 }
