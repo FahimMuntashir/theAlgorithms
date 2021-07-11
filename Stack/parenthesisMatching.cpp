@@ -22,7 +22,7 @@ const double EPSILON = 1e-9;
 int isBanlanced(string s)
 {
     int len = s.size();
-    stack<int> st;
+    stack<char> st;
     for (int i = 0; i < len; i++)
     {
         if (s[i] == '(')
@@ -31,6 +31,11 @@ int isBanlanced(string s)
         }
         else if (s[i] == ')')
         {
+            if (st.empty())
+            {
+                return 0;
+            }
+            
             st.pop();
         }
         else
@@ -53,7 +58,8 @@ int main()
 {
     f12r;
 
-    string s = "((((a+b))+(a-b)))";
+    // string s = "((((a+b))+(a-b)))";
+    string s = ")()()(";
     // cin>>s;
 
     if (isBanlanced(s))
