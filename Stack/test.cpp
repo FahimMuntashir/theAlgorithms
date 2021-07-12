@@ -19,21 +19,35 @@ const double EPSILON = 1e-9;
 
 /********** Main()  function **********/
 
-bool ArePair(char opening, char closing)
+bool arePair(char opening, char closing)
 {
+
     if (opening == '(' && closing == ')')
+    {
         return true;
+    }
     else if (opening == '{' && closing == '}')
+    {
         return true;
+    }
     else if (opening == '[' && closing == ']')
+    {
         return true;
-    return false;
+    }
+
+    else
+        return false;
 }
 
-int isBalanced(string s)
+int main()
 {
-
+    f12r;
     stack<char> st;
+
+    string s = "()()()()";
+    // string s = "{[(())]}";
+
+
     for (int i = 0; i < s.size(); i++)
     {
         if (s[i] == '(' || s[i] == '{' || s[i] == '[')
@@ -42,43 +56,26 @@ int isBalanced(string s)
         }
         else if (s[i] == ')' || s[i] == '}' || s[i] == ']')
         {
-            if (st.empty() || ArePair(st.top(), s[i]))
+            if (st.empty() || !arePair(st.top(), s[i]))
             {
+                cout << "not balanced" << endl;
                 return 0;
             }
+
             else
+            {
                 st.pop();
-        }
-        else
-        {
-            continue;
+            }
         }
     }
 
     if (st.empty())
     {
-        return 1;
-    }
-    else
-        return 0;
-}
-
-int main()
-{
-    f12r;
-
-    string s = "{[(())]}";
-    // string s = "()()()()";
-
-    // cin>>s;
-
-    if (isBalanced(s))
-    {
-        cout << "balanced" << endl;
+        cout << "balenced" << endl;
     }
     else
     {
-        cout << "Not balanced" << endl;
+        cout << "Not balenced" << endl;
     }
 
     return 0;

@@ -38,7 +38,7 @@ int isBalanced(string s)
     {
         if (s[i] == '(' || s[i] == '{' || s[i] == '[')
         {
-            st.push(s[i]);
+            st.push(i);
         }
         else if (s[i] == ')' || s[i] == '}' || s[i] == ']')
         {
@@ -67,18 +67,22 @@ int main()
 {
     f12r;
 
-    string s = "{[(())]}";
-    // string s = "()()()()";
+    int t;
+    cin >> t;
 
-    // cin>>s;
+    while (t--)
+    {
+        string s;
+        cin >> s;
 
-    if (isBalanced(s))
-    {
-        cout << "balanced" << endl;
-    }
-    else
-    {
-        cout << "Not balanced" << endl;
+        if (isBalanced(s))
+        {
+            cout << "Yes" << endl;
+        }
+        else
+        {
+            cout << "No" << endl;
+        }
     }
 
     return 0;
