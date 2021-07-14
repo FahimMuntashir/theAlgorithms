@@ -15,7 +15,7 @@ int main()
         cin >> arr[i];
     }
     int key;
-    cout<<"enter the key you want to search: ";
+    cout << "enter the key you want to search: ";
     cin >> key;
     sort(arr, arr + n);
 
@@ -37,7 +37,7 @@ int binarySearch(int *arr, int size, int search)
 
     while (low <= high)
     {
-        mid = (low + high) / 2;
+        mid = low + (high - low) / 2;
 
         if (search == arr[mid])
         {
