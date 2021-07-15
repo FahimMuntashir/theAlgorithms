@@ -40,7 +40,7 @@ Queue::Queue(int size)
 
 bool Queue::isEmpty()
 {
-    if (front == rear)
+    if (front == rear == -1)
     {
         return true;
     }
@@ -60,16 +60,20 @@ bool Queue::isFull()
 
 void Queue::enqueue(int x)
 {
-    if (!isFull())
+    if (isFull())
     {
-
-        // rear++;
-        qu[rear++] = x;
+        cout << "queue is full" << endl;
+        return;
+    }
+    else if (isEmpty())
+    {
+        front = rear = 0;
     }
     else
     {
-        cout << "queue is full" << endl;
+        rear++;
     }
+    qu[rear] = x;
 }
 
 int Queue::dequeue()
@@ -77,11 +81,15 @@ int Queue::dequeue()
     if (isEmpty())
     {
         cout << "queue is empty" << endl;
+        return 0;
+    }
+    else if (front == rear)
+    {
+        front = rear = -1;
     }
     else
     {
         front++;
-        return qu[front];
     }
 }
 
@@ -98,7 +106,7 @@ int Queue::backItem()
 void Queue::display()
 {
 
-    for (int i = front; i < rear; i++)
+    for (int i = front + 1; i <= rear; i++)
     {
         cout << qu[i] << " ";
     }
@@ -114,7 +122,7 @@ int main(int argc, char const *argv[])
     q.enqueue(9);
     q.enqueue(9);
     q.enqueue(10);
-    q.enqueue(10);
+    q.enqueue(20);
 
     // q.dequeue();
     // q.dequeue();
