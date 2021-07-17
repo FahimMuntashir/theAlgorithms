@@ -40,7 +40,7 @@ Queue::Queue(int size)
 
 bool Queue::isEmpty()
 {
-    if (front == rear == -1)
+    if (front ==-1 && rear == -1)
     {
         return true;
     }
@@ -50,7 +50,7 @@ bool Queue::isEmpty()
 
 bool Queue::isFull()
 {
-    if (rear == size - 1)
+    if ((rear+1)%size == front)
     {
         return true;
     }
@@ -67,11 +67,12 @@ void Queue::enqueue(int x)
     }
     else if (isEmpty())
     {
-        front = rear = 0;
+        front =0;
+        rear = 0;
     }
     else
     {
-        rear++;
+        rear = (rear+1)%size;
     }
     qu[rear] = x;
 }
@@ -89,7 +90,7 @@ int Queue::dequeue()
     }
     else
     {
-        front++;
+        front = (front+1)%size;
     }
 }
 
@@ -105,13 +106,17 @@ int Queue::backItem()
 
 void Queue::display()
 {
+    int count = (rear  + size-front)%size +1;
 
-    for (int i = front + 1; i <= rear; i++)
-    {
-        cout << qu[i] << " ";
-    }
+   for (int i = 0; i <count; i++)
+   {
+       int index = (front+i) % size; 
+       cout<<qu[index]<<" ";
+   }
 
-    cout << endl;
+   cout<<endl;
+   
+    
 }
 
 int main(int argc, char const *argv[])
@@ -120,19 +125,15 @@ int main(int argc, char const *argv[])
     q.enqueue(56);
     q.enqueue(5);
     q.enqueue(9);
-    q.enqueue(9);
-    q.enqueue(10);
-    q.enqueue(20);
+    // q.enqueue(9);
 
     // q.dequeue();
+    q.dequeue();
     // q.dequeue();
 
     // cout << q.isEmpty() << endl;
     // cout << q.isFull() << endl;
     q.display();
-    cout << q.frontItem() << endl;
-
-    cout << q.backItem() << endl;
-
+    
     return 0;
 }
