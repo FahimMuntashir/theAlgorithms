@@ -133,6 +133,8 @@ int main(int argc, char const *argv[])
 
     // cout << q.isEmpty() << endl;
     // cout << q.isFull() << endl;
+    cout<<q.frontItem()<<endl;
+    cout<<q.backItem()<<endl;
     q.display();
     
     return 0;

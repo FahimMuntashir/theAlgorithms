@@ -25,7 +25,7 @@ struct Node
     struct Node *link;
 };
 
-struct Node* insertData(struct Node *head, int data)
+struct Node* insertData(struct Node *head, int data) 
 {
 
     struct Node  *temp;
