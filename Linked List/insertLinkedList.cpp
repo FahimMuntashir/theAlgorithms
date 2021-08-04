@@ -12,6 +12,7 @@ struct Node *head;
 
 
 
+
 void insertData(int value){
     struct Node* temp = new Node();
     temp->data = value;
@@ -32,6 +33,8 @@ void insertData(int value){
     
 }
 
+
+        
 void display(){
     struct Node *temp;
     temp = head;
