@@ -1,12 +1,14 @@
+#include <iostream>
+
+using namespace std;
+
 class EmptyStack
 {
-
-}
+};
 
 class FullStack
 {
-
-}
+};
 
 class StackUsingLinkedList
 {
@@ -47,7 +49,7 @@ int StackUsingLinkedList::top()
         throw EmptyStack();
     }
     else
-        topPtr->data;
+       return topPtr->data;
 }
 
 bool StackUsingLinkedList::isFull()
@@ -108,4 +110,16 @@ StackUsingLinkedList::~StackUsingLinkedList()
         topPtr = topPtr->next;
         delete tempPtr;
     }
+}
+
+
+
+
+int main()
+{
+    StackUsingLinkedList st;
+    st.push(5);
+
+    
+    
 }

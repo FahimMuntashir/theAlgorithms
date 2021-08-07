@@ -1,0 +1,9 @@
+class FullStack{
+
+};
+
+class EmptyStack{
+
+};
+
+
