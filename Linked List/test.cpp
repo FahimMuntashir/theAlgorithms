@@ -16,42 +16,15 @@ const double EPSILON = 1e-9;
 #define pi acos(-1)
 #define ll long long
 #define endl "\n"
- 
+
 /********** Main()  function **********/
 
-int fact(int n)
+struct Node
 {
-
-    int fact = 1;
-    for (int i = 1; i <= n; i++)
-    {
-        fact = fact * i;
-    }
-
-    return fact;
-}
-
+    int data;
+    Node *link;
+};
+struct Node *head;
 int main()
 {
-    f12r;
-    int a, b;
-
-    int p;
-    cin >> p;
-    int count = 0;
-    int i = 0;
-    int ans = 0;
-    while (ans != p)
-    {
-        if (fact(i) <= p)
-        {
-            count++;
-            ans = ans + fact(i);
-        }
-        i++;
-    }
-
-    cout << count << endl;
-
-    return 0;
 }
