@@ -43,7 +43,7 @@ stackType::stackType(int size)
 {
     this->size = size;
     this->top = -1;
-    list = new int[size];
+    list = new int[size];   
 }
 
 bool stackType::isEmpty()
