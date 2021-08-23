@@ -30,6 +30,7 @@ public:
     int top();
     bool isEmpty();
     bool isFull();
+    void PrintStack();
 };
 
 StackUsingLinkedList::StackUsingLinkedList()
@@ -49,7 +50,7 @@ int StackUsingLinkedList::top()
         throw EmptyStack();
     }
     else
-       return topPtr->data;
+        return topPtr->data;
 }
 
 bool StackUsingLinkedList::isFull()
@@ -84,6 +85,22 @@ void StackUsingLinkedList::push(int item)
     }
 }
 
+// void StackUsingLinkedList::pop()
+// {
+
+//     if (isEmpty())
+//     {
+//         throw EmptyStack();
+//     }
+//     else
+//     {
+//         NodeType *tempPtr;
+//         tempPtr = topPtr;
+//         topPtr = topPtr->next;
+//         delete tempPtr;
+//     }
+// }
+
 void StackUsingLinkedList::pop()
 {
 
@@ -94,8 +111,8 @@ void StackUsingLinkedList::pop()
     else
     {
         NodeType *tempPtr;
-        tempPtr = topPtr;
-        topPtr = topPtr->next;
+        tempPtr = topPtr->next;
+        topPtr->next = (topPtr->next)->next;
         delete tempPtr;
     }
 }
@@ -112,14 +129,25 @@ StackUsingLinkedList::~StackUsingLinkedList()
     }
 }
 
+void StackLinkedList::PrintStack()
+{
+    NodeType *temp;
+    temp = topPtr;
 
-
+    if (topPtr == NULL)
+    {
+        throw EmptyStack();
+    }
+    else
+        while (temp != NULL)
+        {
+            cout << temp->data << " ";
+            temp = temp->next;
+        }
+}
 
 int main()
 {
     StackUsingLinkedList st;
     st.push(5);
-
-    
-    
 }
