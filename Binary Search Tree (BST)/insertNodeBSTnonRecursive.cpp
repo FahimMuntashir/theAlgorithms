@@ -53,20 +53,44 @@ void insert(int value)
                 {
                     temp->rChild = newNode;
                     break;
-                }else{
+                }
+                else
+                {
                     temp = temp->rChild;
                 }
             }
         }
     }
 }
+
+// pre-order traversal
+
+void preOrder(Node *r)
+{
+    if (r == NULL)
+    {
+        return;
+    }
+
+    cout << r->data << " ";
+
+    preOrder(r->lChild); // left visit
+    preOrder(r->rChild); // right visit
+}
+
 int main()
 {
     root = NULL;
-    insert(5);
-    insert(10);
-    insert(15);
-    insert(20);
+    insert(55);
+    insert(40);
+    insert(80);
+    insert(90);
+    insert(38);
+    insert(28);
+    insert(34);
+    insert(60);
 
+    preOrder(root);
+    cout << endl;
     return 0;
 }
