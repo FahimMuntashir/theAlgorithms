@@ -11,6 +11,7 @@ struct Node
 
 struct Node *root;
 
+// iterative way
 void insert(int value)
 {
     Node *newNode = NULL;
@@ -62,6 +63,8 @@ void insert(int value)
         }
     }
 }
+
+
 
 // pre-order traversal
 
