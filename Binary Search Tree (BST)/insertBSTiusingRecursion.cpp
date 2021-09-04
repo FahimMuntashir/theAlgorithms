@@ -44,6 +44,10 @@ void insertRecusion(Node *&tree, int item)
         insertRecusion(tree->right, item);
     }
 }
+void insert(int item)
+{
+    insertRecusion(root, item);
+}
 
 // preorder traversal
 
@@ -59,10 +63,7 @@ void preorder(Node *temp)
     preorder(temp->right);
 }
 
-void insert(int item)
-{
-    insertRecusion(root, item);
-}
+
 
 /********** Main()  function **********/
 
