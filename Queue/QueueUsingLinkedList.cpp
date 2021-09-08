@@ -29,6 +29,7 @@ public:
     void dequeue();
     bool isEmpty();
     bool isFull();
+    void display();
     ~QueueUsingLinkedList();
 };
 
@@ -107,19 +108,40 @@ void QueueUsingLinkedList::dequeue()
     }
 }
 
-void QueueUsingLinkedList::makeEmpty(){
+void QueueUsingLinkedList::makeEmpty()
+{
 
-        NodeType *temp;
-        while (front!=NULL)
-        {
-            temp = front;
-            front  = front->link;
-            delete temp;
-        }
-        rear = NULL;
-        
+    NodeType *temp;
+    while (front != NULL)
+    {
+        temp = front;
+        front = front->link;
+        delete temp;
+    }
+    rear = NULL;
 }
 
-QueueUsingLinkedList::~QueueUsingLinkedList(){
+QueueUsingLinkedList::~QueueUsingLinkedList()
+{
     makeEmpty();
+}
+
+void QueueUsingLinkedList::display()
+{
+    NodeType *temp;
+    temp = front;
+    while (temp != NULL)
+    {
+        cout << temp->data << " ";
+        temp = temp->link;
+    }
+}
+
+int main()
+{
+    QueueUsingLinkedList qu;
+    qu.eneueue(5);
+    qu.eneueue(15);
+    qu.eneueue(25);
+    qu.display();
 }

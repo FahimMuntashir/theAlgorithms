@@ -14,7 +14,7 @@ public:
     Queue();
     Queue(int);
     void enqueue(int);
-    int dequeue();
+    void dequeue();
     bool isFull();
     bool isEmpty();
     void display();
@@ -77,16 +77,17 @@ void Queue::enqueue(int x)
     qu[rear] = x;
 }
 
-int Queue::dequeue()
+void Queue::dequeue()
 {
     if (isEmpty())
     {
         cout << "queue is empty" << endl;
-        return 0;
+        return;
     }
     else if (front == rear)
     {
-        front = rear = -1;
+        front = -1;
+        rear = -1;
     }
     else
     {
@@ -106,33 +107,45 @@ int Queue::backItem()
 
 void Queue::display()
 {
-    int count = (rear + size - front) % size + 1;
+    // int count = (rear + size - front) % size + 1;
 
-    for (int i = 0; i < count; i++)
+    // for (int i = 0; i < count; i++)
+    // {
+    //     int index = (front + i) % size;
+    //     cout << qu[index] << " ";
+    // }
+
+    // cout << endl;
+
+    // using while loop
+    int i = front;
+    while (i != rear)
     {
-        int index = (front + i) % size;
-        cout << qu[index] << " ";
+        cout << qu[i] << " ";
+        i = (i + 1) % size;
     }
-
+    cout << qu[rear] << " ";
     cout << endl;
 }
 
-int main(int argc, char const *argv[])
+int main()
 {
-    Queue q(6);
+    Queue q(5);
+
     q.enqueue(56);
     q.enqueue(5);
     q.enqueue(9);
-    // q.enqueue(9);
+    q.enqueue(10);
+    q.enqueue(20);
 
     // q.dequeue();
-    q.dequeue();
+    // q.dequeue();
     // q.dequeue();
 
     // cout << q.isEmpty() << endl;
     // cout << q.isFull() << endl;
-    cout << q.frontItem() << endl;
-    cout << q.backItem() << endl;
+    // cout << q.frontItem() << endl;
+    // cout << q.backItem() << endl;
     q.display();
 
     return 0;

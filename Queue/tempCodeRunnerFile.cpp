@@ -1,4 +1,9 @@
-q.enqueue(56);
-    // q.enqueue(5);
-    // q.enqueue(9);
-    // q.enqueue(9);
+ int count = (rear + size - front) % size + 1;
+
+    for (int i = 0; i < count; i++)
+    {
+        int index = (front + i) % size;
+        cout << qu[index] << " ";
+    }
+
+    cout << endl;

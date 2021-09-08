@@ -19,82 +19,78 @@ const double EPSILON = 1e-9;
 
 /********** Main()  function **********/
 
-class queues
+#define N 5
+
+int que[N];
+
+int front = -1, rear = -1;
+
+void insert(int item)
 {
-private:
-    int front;
-    int rear;
-    int *q;
-    int size;
-
-public:
-    queues();
-    queues(int);
-    void enqueue(int);
-    void dequeue();
-    void display();
-    ~queues();
-};
-
-queues::queues(int size)
-{
-    this->size = size;
-    rear = -1;
-    front = -1;
-
-    q = new int[size];
-}
-
-void queues::enqueue(int x)
-{
-
-    if (rear == size - 1)
-    {
-        cout << "list is full" << endl;
+    if(rear==N-1){
+        cout<<"overflow"<<endl;
         return;
     }
-
-    rear++;
-    q[rear] = x;
-}
-
-void queues::dequeue()
-{
-
-    if (rear == front)
+    else if (front == -1 && rear == -1)
     {
-        cout << "empty list" << endl;
-        return;
+        front = 0;
+        rear = 0;
+
+        que[rear] = item;
+    }else{
+        rear++;
+        que[rear] = item;
     }
-
-    front++;
-}
-
-queues::~queues(){
-    delete[] q;
-}
-
-void queues::display(){
-    for (int i = front; i <= rear ; i++)
-    {
-        cout<<q[i]<<" ";
-    }
-
-    cout<<endl;
     
 }
 
 
+void print(){
+    if (front==-1&& rear==-1)
+    {
+        cout<<"list is empty"<<endl;
+        return;
+    }
+    
+    for (int i = front; i < rear+1; i++)
+    {
+        cout<<que[i]<<" ";
+    }
+    cout<<endl;
+    
+}
+
+void dequeue(){
+
+    if (front==-1 && rear==-1)
+    {
+        cout<<"underflow"<<endl;
+    }
+    else if (rear==front)
+    {
+        front= -1;
+        rear= -1;
+    }else{
+        front++;
+    }
+    
+    
+}
 int main()
 {
-    f12r;
 
-    queues qu(10);
-    qu.enqueue(5);
-    qu.enqueue(10);
-    qu.enqueue(15);
+    insert(5);
+    insert(10);
+    insert(15);
+    insert(20);
+    insert(20);
 
-    qu.display();
+    dequeue();
+    dequeue();
+    dequeue();
+    dequeue();
+    dequeue();
 
-    return 0;
+
+    print();
 }
